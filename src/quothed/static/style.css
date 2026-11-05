@@ -1,0 +1,28 @@
+/* Keep the page intentionally small: it is a deployment example, not a UI framework. */
+html,
+body {
+    min-height: 100%;
+    margin: 0;
+}
+
+body {
+    align-items: center;
+    background: #f4f1ea;
+    color: #242424;
+    display: flex;
+    font-family: Georgia, "Times New Roman", serif;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.quote-card {
+    max-width: 48rem;
+    padding: 2rem;
+    text-align: center;
+}
+
+blockquote {
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    line-height: 1.3;
+    margin: 0;
+}

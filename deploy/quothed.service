@@ -1,0 +1,21 @@
+[Unit]
+Description=Quothed Gunicorn application
+After=network.target
+
+[Service]
+Type=exec
+User=quothed
+Group=quothed
+WorkingDirectory=/var/lib/quothed
+ExecStart=/var/lib/quothed/.venv/bin/gunicorn --workers 2 --bind 127.0.0.1:8000 quothed:app
+Restart=on-failure
+RestartSec=5
+
+# The application only needs to read its installed files and listen locally.
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=strict
+
+[Install]
+WantedBy=multi-user.target

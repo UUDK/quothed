@@ -1,0 +1,38 @@
+[project]
+name = "quothed"
+version = "0.1.0"
+description = "A small Flask quote application for demonstrating production-style deployment on Ubuntu"
+readme = "README.md"
+authors = [
+    { name = "Thomas Ammitzbøll-Bach", email = "tab@uu.dk" }
+]
+requires-python = ">=3.12,<4"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Web Environment",
+    "Framework :: Flask",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Internet :: WWW/HTTP :: WSGI :: Application",
+]
+dependencies = [
+    "flask>=3.1,<4",
+    "gunicorn>=23,<24",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8,<9",
+]
+
+[project.scripts]
+quothed = "quothed:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+
+[build-system]
+requires = ["uv_build>=0.13.0,<0.14.0"]
+build-backend = "uv_build"
